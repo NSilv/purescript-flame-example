@@ -1,0 +1,25 @@
+{
+  "name": "flame-example",
+  "version": "0.0.1",
+  "description": "Example flame app",
+  "main": "index.js",
+  "repository": "",
+  "author": "Nicholas Silvestrin <n.silvestrin98@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "parcel index.html -p 4201",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build-production": "spago build && parcel build index.html",
+    "build": "spago build --purs-args '-g sourcemaps'",
+    "clean": "rm -rf .cache .spago .psci_modules node_modules output dist",
+    "restore": "spago install",
+    "serve": "concurrently \"npm run build:w\" \"parcel index.html -p 4201 \"",
+    "build:w": "spago build --watch --purs-args \"-g sourcemaps\""
+  },
+  "dependencies": {
+    "concurrently": "^5.1.0",
+    "parcel": "^1.12.4",
+    "snabbdom": "^0.7.4",
+    "snabbdom-to-html": "^5.1.1"
+  }
+}
